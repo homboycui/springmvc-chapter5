@@ -9,10 +9,10 @@
         <property name="interceptors">
             <list>
                 <ref bean="stopWatchHandlerInterceptor"/>
-                <!--<ref bean="loginHandlerInterceptor"/>-->
-                <ref bean="handlerInterceptor1"/>
-                <ref bean="handlerInterceptor2"/>
-                <ref bean="handlerInterceptor3"/>
+                <ref bean="loginHandlerInterceptor"/>
+                <!--<ref bean="handlerInterceptor1"/>-->
+                <!--<ref bean="handlerInterceptor2"/>-->
+                <!--<ref bean="handlerInterceptor3"/>-->
                 <!--<ref bean="handlerInterceptor4"/>-->
 
             </list>

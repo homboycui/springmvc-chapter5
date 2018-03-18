@@ -8,7 +8,7 @@ public class TestController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		System.out.println("===========TestController");
-		Thread.currentThread().sleep(1000);
+		Thread.currentThread().sleep(5000);
 		return new ModelAndView("test");
 	}
 }

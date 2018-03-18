@@ -14,6 +14,7 @@ public class StopWatchHandlerInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         long beginTime = System.currentTimeMillis();//开始时间
         startTimeThreadLocal.set(beginTime);//线程绑定变量（该数据只有当前请求的线程可见）
+        System.out.println("===========StopWatchHandlerIntercepter preHandle");
         return true;//继续流程
     }
     
@@ -23,12 +24,13 @@ public class StopWatchHandlerInterceptor extends HandlerInterceptorAdapter {
         long endTime = System.currentTimeMillis();//2、结束时间
         long beginTime = startTimeThreadLocal.get();//得到线程绑定的局部变量（开始时间）
         long consumeTime = endTime - beginTime;//3、消耗的时间
+        System.out.println("===========StopWatchHandlerIntercepter afterCompletion");
         if(consumeTime > 500) {//此处认为处理时间超过500毫秒的请求为慢请求
             //TODO 记录到日志文件
-            System.out.println(String.format("%s consume %d millis", request.getRequestURI(), consumeTime));
-            
+            System.out.println(String.format("响应时间慢： %s consume %d millis", request.getRequestURI(), consumeTime));
+        }else{
+            //此处统计响应时间
+            System.out.println(String.format("响应时间正常： %s consume %d millis", request.getRequestURI(), consumeTime));
         }
-        
     }
-    
 }

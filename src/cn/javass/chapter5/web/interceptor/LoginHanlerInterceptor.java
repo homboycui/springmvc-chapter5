@@ -14,7 +14,8 @@ public class LoginHanlerInterceptor extends HandlerInterceptorAdapter {
     
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        
+
+        System.out.println("===========loginHandlerInterceptor preHandle:" + request.getServletPath());
         //1、请求到登录页面 放行
         if(request.getServletPath().startsWith(loginUrl)) {
             return true;
